@@ -93,3 +93,18 @@ storms %>% arrange(-wind)
 
 delays %>%
   arrange(-avg_delay)
+
+# TB summary data
+?tb
+tb2 <- tb %>%
+  filter(!is.na(child), !is.na(adult), !is.na(elderly)) %>%
+  group_by(country, year) %>%
+  summarize(cases = sum(child + adult + elderly)) %>%
+  ungroup()
+
+# Units of Analysis
+
+rawtb %>%
+  group_by(country, year, sex, age) %>%
+  summarize(n = n())
+
