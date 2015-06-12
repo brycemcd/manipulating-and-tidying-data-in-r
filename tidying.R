@@ -27,7 +27,7 @@ pollution2
 
 pollution2 %>%
   gather('size', 'amount', large:small) %>%
-  arrange(city, size)
+  arrange(desc(city), size)
 
 # unite & separate()
 
